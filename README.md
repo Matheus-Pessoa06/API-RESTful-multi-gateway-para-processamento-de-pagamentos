@@ -15,6 +15,8 @@
 ### 1. Clonar o repositório
 ```bash
 git clone https://github.com/Matheus-Pessoa06/API-RESTful-multi-gateway-para-processamento-de-pagamentos
+```
+```bash
 cd api-pagamentos
 ```
 
