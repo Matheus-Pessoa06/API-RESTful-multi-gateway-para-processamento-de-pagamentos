@@ -61,8 +61,7 @@ class PaymentService
                 });
 
             } catch (Exception $e) {
-                // continue;
-                throw new Exception("Erro no gateway {$gateway->name}: " . $e->getMessage());
+                continue;
             }
         }
 
