@@ -21,10 +21,6 @@ class Transaction extends Model
         'card_last_numbers'
     ];
 
-    /**
-     * Relacionamento N:N com Produtos (via tabela pivô transaction_products)
-     * Essencial para o attach() funcionar no seu PaymentService
-     */
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('client_id')->constrained('users');
+            $table->foreignId('client_id')->constrained('clients');
             $table->foreignId('gateway_id')->constrained('gateways');
             $table->string('external_id')->nullable(); 
             $table->string('status'); 
