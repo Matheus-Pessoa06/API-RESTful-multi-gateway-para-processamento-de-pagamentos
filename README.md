@@ -24,6 +24,17 @@ cd api-pagamentos
 ```bash
 cp .env.example .env
 ```
+### No .env.example, adicione esses valores no final do arquivo:
+Gateway 1:
+```bash
+GATEWAY_ONE_EMAIL=dev@betalent.tech
+GATEWAY_ONE_TOKEN=FEC9BB078BF338F464F96B48089EB498
+```
+Gateway 2:
+```bash
+GATEWAY_TWO_AUTH_TOKEN=tk_f2198cc671b5289fa856
+GATEWAY_TWO_AUTH_SECRET=3d15e8ed6131446ea7e3456728b1211f
+```
 
 ### 3. Subir os Containers
 ```bash
