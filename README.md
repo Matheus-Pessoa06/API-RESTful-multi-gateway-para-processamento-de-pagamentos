@@ -53,6 +53,11 @@ docker-compose exec app php artisan migrate:fresh --seed
 ```
 
 ### 6. Como Testar a Compra
+
+### Rode o servidor
+```bash
+docker-compose exec app php artisan serve --host=0.0.0.0 --port=8000
+```
 Método: POST
 URL: http://localhost:8080/api/checkout
 
