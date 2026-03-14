@@ -20,21 +20,35 @@ git clone https://github.com/Matheus-Pessoa06/API-RESTful-multi-gateway-para-pro
 cd api-pagamentos
 ```
 
-2. Configurar o ambiente Docker
-Certifique-se de que o Docker está rodando e execute:
+### 2. Criar o arquivo de configuração
+```bash
+cp .env.example .env
+```
 
+### 3. Subir os Containers
 ```bash
 docker-compose up -d
 ```
 
-3. Preparar o Banco de Dados
+### 4. Instalar as Dependências
 ```bash
+docker-compose exec app composer install
+```
+
+### 5. Preparar o Banco de Dados
+```bash
+docker-compose exec app php artisan key:generate
 docker-compose exec app php artisan migrate:fresh --seed
 ```
 
-Endpoints Principais
-[POST] /api/checkout
-Realiza a compra de um produto enviando os dados via JSON no corpo da requisição.
+### 6. Como Testar a Compra
+Método: POST
+URL: http://localhost:8080/api/checkout
+
+### Headers:
+Content-Type: application/json
+
+Accept: application/json
 
 Exemplo de Payload (Body JSON):
 ```json
@@ -50,7 +64,7 @@ JSON
 ```
 
 
-Como testar a Resiliência (Failover)
+### Como testar a Resiliência (Failover)
 Para validar que o sistema chama o segundo gateway caso o primeiro falhe:
 
 Acesse o arquivo app/Infraestructure/Gateway/Payments/Adapters/GatewayAdapterOne.php.
