@@ -61,6 +61,7 @@ class PaymentService
                 });
 
             } catch (Exception $e) {
+                \Log::error("Falha no gateway {$gateway->name}: " . $e->getMessage());
                 continue;
             }
         }

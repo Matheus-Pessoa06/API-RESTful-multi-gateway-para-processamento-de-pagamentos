@@ -9,10 +9,11 @@ class GatewayAdapterTwo implements PaymentGatewayInterface
 {
     public function pay(int $amount, array $customerData): array
     {
+        $url = config('services.gateway_two.url');
         $response = Http::withHeaders([
-            'Gateway-Auth-Token' => 'tk_f2198cc671b5289fa856',
-            'Gateway-Auth-Secret' => '3d15e8ed6131446ea7e3456728b1211f'
-        ])->post("http://gateways-mock:3002/transacoes", [
+            'Gateway-Auth-Token' => config('services.gateway_two.auth_token'),
+            'Gateway-Auth-Secret' => config('services.gateway_two.auth_secret')
+        ])->post($url, [
             'valor'        => $amount,
             'nome'         => $customerData['name'],
             'email'        => $customerData['email'],

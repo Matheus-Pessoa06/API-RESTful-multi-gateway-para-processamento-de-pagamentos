@@ -28,9 +28,11 @@ class GatewayAdapterOne implements PaymentGatewayInterface
 
     private function login(): string
     {
-        $response = Http::post("http://gateways-mock:3001/login", [
-            'email' => 'dev@betalent.tech',
-            'token' => 'FEC9BB078BF338F464F96B48089EB498'
+        $url = config('services.gateway_one.url') . "/login";
+        
+        $response = Http::post($url, [
+            'email' => config('services.gateway_one.email'),
+            'token' => config('services.gateway_one.token')
         ]);
 
         $token = $response->json('token');
